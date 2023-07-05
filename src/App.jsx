@@ -6,6 +6,7 @@ import Profile from './components/Profile'
 import { coffee, tea } from './components/utils/data';
 import Button from './components/ui/Button';
 import { DrinkChoice } from './components/DrinkChoice';
+import { DrinkSearch } from './components/DrinkSearch';
 
 export const App = () => {
 	const [count, setCount] = useState(0);
@@ -26,7 +27,7 @@ export const App = () => {
 				</a>
 			</div>
 				<h1>Vite + React</h1>
-
+				<DrinkSearch />
 				{userDrink ? (<DrinkChoice drink={userDrink}/>) : (<> <h1>{greeting}</h1>
 				<DrinkButtons drinkOne={tea.name} drinkTwo={coffee.name}/> </>)}
 			<div className="card">
