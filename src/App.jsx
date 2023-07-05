@@ -9,13 +9,13 @@ import { DrinkChoice } from './components/DrinkChoice';
 
 export const App = () => {
 	const [count, setCount] = useState(0);
-	const greeting = 'Welcome to our Cafe'
 	const description = <p>This app is going to change your life.</p>
-	const userDrink = tea
+	const greeting = 'Welcome to our Cafe'
+	//const userDrink = undefined
+	const [userDrink, setUserDrink] = useState(tea)
 
 	return (
 		<div className="App">
-			<div>{greeting}</div>
 			{description}
 			<div>
 				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
@@ -26,8 +26,9 @@ export const App = () => {
 				</a>
 			</div>
 				<h1>Vite + React</h1>
-				<DrinkButtons drinkOne={tea.name} drinkTwo={coffee.name}/>
-				<DrinkChoice drink={userDrink}/>
+
+				{userDrink ? (<DrinkChoice drink={userDrink}/>) : (<> <h1>{greeting}</h1>
+				<DrinkButtons drinkOne={tea.name} drinkTwo={coffee.name}/> </>)}
 			<div className="card">
 				<button onClick={() => setCount((count) => count + 1)}>
 					count is {count}
